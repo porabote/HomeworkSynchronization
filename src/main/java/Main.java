@@ -56,6 +56,20 @@ public class Main {
 
         }).start();
 
+        new Thread(() -> {
+            while (!Thread.interrupted()) {
+                synchronized (sizeToFreq) {
+                    try {
+                        sizeToFreq.wait();
+                        System.out.println();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                }
+            }
+        });
+
     }
 
     public static String generateRoute(String letters, int length) {
