@@ -50,12 +50,6 @@ public class Main {
                 }
 
                 sizeToFreq.notify();
-
-//                countFinishedProcesses++;
-//                System.out.println(countFinishedProcesses);
-//                if (countFinishedProcesses == maxRoutesCount) {
-//                    sizeToFreq.notify();
-//                }
             }
         };
 
@@ -67,21 +61,8 @@ public class Main {
 
         notificator.interrupt();
 
-
-
         new Thread(() -> {
-
             System.out.println(sizeToFreq);
-//            synchronized (sizeToFreq) {
-//                try {
-//                    sizeToFreq.wait();
-//                } catch (InterruptedException e) {
-//                    return;
-//                }
-//
-//                System.out.println(sizeToFreq);
-//            }
-
         }).start();
 
     }
